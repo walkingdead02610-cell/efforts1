@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Little Surprise For You ❤️</title>
+  <style>
+    :root {
+      --primary: #ff4b72;
+      --primary-hover: #e03b60;
+      --bg: #fff0f3;
+      --card-bg: #ffffff;
+      --text: #333333;
+      --muted: #666666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+      background-image: url('kitty.jpg');
+      background-size: 280px auto;
+      background-repeat: repeat;
+      background-position: center;
+      transition: background 0.6s ease;
+    }
+
+    body.romantic-bg {
+      background: linear-gradient(135deg, #ffeef2, #fed6e3);
+      background-image: url('heart.jpg');
+    }
+
+    .container {
+      width: 100%;
+      max-width: 550px;
+      background: var(--card-bg);
+      border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      padding: 35px;
+      text-align: center;
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    #landing-page {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 20px 40px rgba(71, 140, 204, 0.2);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .heart-icon {
+      font-size: 3.2rem;
+      animation: pulse 1.5s infinite;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    h1, h2 {
+      color: #b01b44;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      position: relative;
+      min-height: 60px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 75, 114, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #f0f0f0;
+      color: #555;
+      transition: all 0.2s ease;
+    }
+
+    .letter-paper {
+      background: #fffdfa;
+      border: 1px dashed #f1a7b8;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: left;
+      line-height: 1.8;
+      color: #4a4a4a;
+      margin-bottom: 25px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+      max-height: 380px;
+      overflow-y: auto;
+    }
+
+    .letter-paper p {
+      color: #4a4a4a;
+      margin-bottom: 12px;
+    }
+
+    .quiz-form {
+      text-align: left;
+    }
+
+    .question-block {
+      margin-bottom: 20px;
+    }
+
+    .question-block label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    .question-block input,
+    .question-block textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .question-block input:focus,
+    .question-block textarea:focus {
+      border-color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. LANDING PAGE -->
+  <div id="landing-page" class="container">
+    <div class="heart-icon">🦋</div>
+    <h1 id="landing-heading">A Special Message Waiting...</h1>
+    <p id="landing-subtext">Someone took the time to write a message just for you. Do you want to open it?</p>
+    
+    <div class="btn-group">
+      <button id="yes-btn" class="btn btn-primary" onclick="showStage('letter')">Yes ✨</button>
+      <button id="no-btn" class="btn btn-secondary">No 😞</button>
+    </div>
+  </div>
+
+  <!-- 2. LOVE LETTER PAGE -->
+  <div id="letter-page" class="container hidden">
+    <div class="heart-icon">🌹</div>
+    <h2>For Someone Special!</h2>
+    <div class="letter-paper">
+      <p>Hey,</p>
+      <p>
+        Okay, don't judge me, this might be a little random 😅
+        We haven't really talked much, but I've noticed you for a while and honestly, I think you're really cute. ❤️
+      </p>
+      <p>
+        I just wanted to say it once, without making it awkward.
+        Maybe we could talk sometime? :)
+      </p>
+      <p>
+        No pressure, bas dil ki baat thi. 🫶
+      </p>
+      <p style="text-align: right; font-weight: bold; margin-top: 15px;">— Always Yours ❤️</p>
+    </div>
+    <button class="btn btn-primary" onclick="showStage('quiz')">Next: Take The Quick Quiz 📝</button>
+  </div>
+
+  <!-- 3. QUIZ PAGE -->
+  <div id="quiz-page" class="container hidden">
+    <div class="heart-icon">✨</div>
+    <h2>A Few Quick Questions...</h2>
+    <p>Answer honestly — all answers land directly in my inbox!</p>
+
+    <form id="quiz-form" class="quiz-form" action="https://formspree.io/f/mrpbzpzo" method="POST">
+      <div class="question-block">
+        <label for="q1">1. Agar koi tumhe secretly like karta ho, toh tum kya prefer karogi?</label>
+        <input type="text" id="q1" name="1_Secret_Crush_Preference" placeholder="Type your answer..." required />
+      </div>
+
+      <div class="question-block">
+        <label for="q2">2. Agar tumhe koi impress karna chahe, toh sabse simple tareeka kya hoga?</label>
+        <input type="text" id="q2" name="2_Simple_Way_To_Impress" placeholder="Answer please!" required />
+      </div>
+
+      <div class="question-block">
+        <label for="q3">3. Last time kab kiski wajah se genuinely happy feel hua?</label>
+        <input type="text" id="q3" name="3_Genuinely_Happy_Moment" placeholder="Be completely honest :)" required />
+      </div>
+
+      <div class="question-block">
+        <label for="q4">4. Koi memory jo aaj bhi smile de deti hai?</label>
+        <textarea id="q4" name="4_Memory_That_Makes_Her_Smile" rows="3" placeholder="Typing..."></textarea>
+      </div>
+
+      <div class="question-block">
+        <label for="q5">5. Ek critical judgment test: Maggi normal pasand hai ya weird experiments ke saath?</label>
+        <textarea id="q5" name="5_Maggi_Preference" rows="3" placeholder="Normal or weird experiment?"></textarea>
+      </div>
+
+      <div class="question-block">
+        <label for="q6">6. Ek baat genuinely poochhni thi... tumhari life mein pehle se koi special hai kya?</label>
+        <textarea id="q6" name="6_Anyone_Special_In_Life" rows="3" placeholder="Typing..."></textarea>
+      </div>
+
+      <div class="question-block">
+        <label for="q7">7. Any sweet message you'd like to leave for me?</label>
+        <textarea id="q7" name="7_Sweet_Note_For_Me" rows="3" placeholder="Leave a sweet note here..."></textarea>
+      </div>
+
+      <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+        Send Answers & Finish 💌
+      </button>
+    </form>
+  </div>
+
+  <!-- 4. FAREWELL / BYE PAGE -->
+  <div id="bye-page" class="container hidden">
+    <div class="heart-icon">😇</div>
+    <h2>Thank You For Being You!</h2>
+    <p style="font-size: 1.1rem; margin-top: 15px;">
+      Your answers have been sent successfully! Thank you for walking through this little surprise.
+    </p>
+    <p style="font-style: italic; color: var(--primary); font-weight: 600;">
+      "Until next time, keep smiling. Bye for now! 👋"
+    </p>
+  </div>
+
+  <script>
+    function showStage(stage) {
+      document.getElementById('landing-page').classList.add('hidden');
+      document.getElementById('letter-page').classList.add('hidden');
+      document.getElementById('quiz-page').classList.add('hidden');
+      document.getElementById('bye-page').classList.add('hidden');
+
+      if (stage === 'landing') {
+        document.getElementById('landing-page').classList.remove('hidden');
+        document.body.classList.remove('romantic-bg');
+      } else {
+        document.body.classList.add('romantic-bg');
+      }
+
+      if (stage === 'letter') document.getElementById('letter-page').classList.remove('hidden');
+      if (stage === 'quiz') document.getElementById('quiz-page').classList.remove('hidden');
+      if (stage === 'bye') document.getElementById('bye-page').classList.remove('hidden');
+    }
+
+    const noBtn = document.getElementById('no-btn');
+    const yesBtn = document.getElementById('yes-btn');
+    const landingHeading = document.getElementById('landing-heading');
+    const landingSubtext = document.getElementById('landing-subtext');
+
+    let noClickCount = 0;
+    const playfulPrompts = [
+      { text: "Are you sure? 🥺", sub: "Think again, it took hours to write!", btn: "Still No" },
+      { text: "Pretty please? 🍰", sub: "one tiny yess! 👉👈", btn: "No way" },
+      { text: "Okay, you're just teasing now! 😆", sub: "The 'Yes' button is getting bigger for a reason!", btn: "Try again" },
+      { text: "You don't have a choice anymore! 😉", sub: "Just press Yes already!", btn: "Catch me if you can" }
+    ];
+
+    noBtn.addEventListener('click', () => {
+      if (noClickCount < playfulPrompts.length) {
+        const prompt = playfulPrompts[noClickCount];
+        landingHeading.innerText = prompt.text;
+        landingSubtext.innerText = prompt.sub;
+        noBtn.innerText = prompt.btn;
+
+        const currentScale = 1 + (noClickCount + 1) * 0.15;
+        yesBtn.style.transform = `scale(${currentScale})`;
+
+        const randomX = (Math.random() - 0.5) * 140;
+        const randomY = (Math.random() - 0.5) * 80;
+        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+        noClickCount++;
+      } else {
+        noBtn.style.display = 'none';
+        landingHeading.innerText = "Only one choice left! ❤️";
+      }
+    });
+
+    const form = document.getElementById('quiz-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.innerText = 'Sending... ⏳';
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          showStage('bye');
+        } else {
+          alert('Oops! There was an issue sending your answers. Please try again.');
+          submitBtn.innerText = 'Send Answers & Finish 💌';
+          submitBtn.disabled = false;
+        }
+      } catch (error) {
+        alert('Network error. Please check your connection and retry.');
+        submitBtn.innerText = 'Send Answers & Finish 💌';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
